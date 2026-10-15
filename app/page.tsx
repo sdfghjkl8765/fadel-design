@@ -11,8 +11,10 @@ import {
   Code2,
   GraduationCap,
   Globe,
+  Menu,
   Presentation,
   Smartphone,
+  X,
 } from "lucide-react";
 import { COPY, PORTFOLIO, PRICING, SERVICES, SITE_CONFIG, type Currency, type Language } from "./siteData";
 import HeroScene from "./HeroScene";
@@ -36,6 +38,7 @@ const formatPrice = (price: number, currency: Currency, language: Language) => {
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("ar");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currency, setCurrency] = useState<Currency>("IQD");
   const [filter, setFilter] = useState<Filter>("all");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -70,10 +73,15 @@ export default function Home() {
           <span className="wordmark-symbol">F<span>.</span></span>
           <span className="wordmark-name">FADEL<br />DESIGN</span>
         </a>
-        <nav className="main-nav" aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}>
+        <nav
+          className={`main-nav${mobileMenuOpen ? " is-open" : ""}`}
+          id="mobile-navigation"
+          aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}
+        >
           {t.nav.map((item, index) => (
-            <a href={["#about", "#services", "#work", "#pricing", "#faq"][index]} key={item}>{item}</a>
+            <a href={["#about", "#services", "#work", "#pricing", "#faq"][index]} key={item} onClick={() => setMobileMenuOpen(false)}>{item}</a>
           ))}
+          <a className="mobile-menu-cta" href="#contact" onClick={() => setMobileMenuOpen(false)}>{t.order}<ArrowUpRight size={16} /></a>
         </nav>
         <div className="header-socials" role="group" aria-label={isArabic ? "حسابات التواصل الاجتماعي" : "Social media"}>
           <a href={SITE_CONFIG.tiktokUrl} target="_blank" rel="noreferrer" aria-label="TikTok">
@@ -96,6 +104,16 @@ export default function Home() {
           </button>
           <a className="header-cta" href="#contact">{t.order}<ArrowUpRight size={16} /></a>
         </div>
+        <button
+          className="mobile-menu-toggle"
+          type="button"
+          onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          aria-label={mobileMenuOpen ? (isArabic ? "إغلاق القائمة" : "Close menu") : (isArabic ? "فتح القائمة" : "Open menu")}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
+        >
+          {mobileMenuOpen ? <X size={19} /> : <Menu size={19} />}
+        </button>
       </header>
 
       <section className="hero" id="home">
