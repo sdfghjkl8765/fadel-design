@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Fadel Design | Digital Design & Development",
   description:
     "Fadel Design creates thoughtful websites, mobile apps, presentations, and graduation project experiences in Iraq and worldwide.",
+  verification: {
+    google: "1ZMsSKjdyOTPHT4mlbNeI6RyZSqMIyXNR0XuMVaYvtk",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
