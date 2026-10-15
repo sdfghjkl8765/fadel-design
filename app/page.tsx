@@ -75,6 +75,20 @@ export default function Home() {
             <a href={["#about", "#services", "#work", "#pricing", "#faq"][index]} key={item}>{item}</a>
           ))}
         </nav>
+        <div className="header-socials" role="group" aria-label={isArabic ? "حسابات التواصل الاجتماعي" : "Social media"}>
+          <a href={SITE_CONFIG.tiktokUrl} target="_blank" rel="noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.57v13.67a2.9 2.9 0 0 1-2.9 2.9 2.9 2.9 0 1 1 2.9-2.9c0-.18-.02-.36-.05-.53V11.5a6.46 6.46 0 1 0 3.62 5.8V9.74a8.36 8.36 0 0 0 4.89 1.57V7.77a4.82 4.82 0 0 1-1.12-.08Z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/fx5_0/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </div>
         <div className="header-actions">
           <button className="language-toggle" onClick={() => setLanguage(isArabic ? "en" : "ar")} aria-label={isArabic ? "Switch to English" : "التبديل إلى العربية"}>
             <span className="language-globe"><Globe size={16} strokeWidth={1.7} /></span>
@@ -99,7 +113,6 @@ export default function Home() {
         <div className="hero-art">
           <div className="hero-art-topline"><span>FD / 2025—26</span><span>DESIGN · DIGITAL · DETAIL</span></div>
           <HeroScene label={isArabic ? "مشهد ثلاثي الأبعاد تفاعلي يضم شاشة حاسوب وهاتفاً وشريحة عرض" : "Interactive 3D scene featuring a computer monitor, phone, and presentation slide"} />
-          <div className="hero-stamp"><span>IDEAS</span><span>INTO</span><strong>IMPACT<span>.</span></strong><ArrowDownRight size={25} /></div>
           <div className="hero-art-index"><span>01</span><i /> <span>05</span></div>
           <div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
         </div>
