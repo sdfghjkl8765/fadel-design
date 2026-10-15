@@ -379,10 +379,96 @@ body {
 
 .site-header {
   position: sticky;
-  top: 0;
-  border-color: var(--line);
-  background: #090b12ed;
-  backdrop-filter: blur(16px);
+  top: 12px;
+  width: min(1320px, calc(100% - 7.1%));
+  height: 76px;
+  margin: 12px auto 0;
+  padding-inline: clamp(22px, 4.4vw, 68px);
+  border: 1px solid #ffffffb8;
+  border-radius: 22px;
+  background: linear-gradient(112deg, #f7f3e9 0%, #f1eee5 58%, #e9eee7 100%);
+  box-shadow: 0 12px 36px #0004, inset 0 1px 0 #fff;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: #202331;
+  transition: box-shadow .25s ease, background-color .25s ease;
+}
+
+.wordmark { gap: 11px; }
+.wordmark-symbol { color: #252535; }
+.wordmark-symbol span { color: #7666d5; }
+.wordmark-name { color: #343542; }
+.main-nav { gap: clamp(16px, 2.5vw, 38px); }
+.main-nav a {
+  position: relative;
+  padding: 10px 12px;
+  border-radius: 999px;
+  color: #55535b;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color .2s ease, background-color .2s ease, transform .2s ease;
+}
+.main-nav a:hover {
+  color: #40377c;
+  background: #e4dfef;
+  transform: translateY(-1px);
+}
+.header-actions { gap: clamp(12px, 1.8vw, 24px); }
+.language-toggle {
+  color: #393944;
+  font-weight: 700;
+  transition: color .2s ease;
+}
+.language-toggle:hover { color: #6657c5; }
+.language-globe { color: #7666d5; }
+.header-cta {
+  gap: 12px;
+  padding: 12px 18px;
+  border: 1px solid #28283a;
+  border-radius: 999px;
+  background: #28283a;
+  color: #f7f3e9;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 5px 14px #24213d24;
+  transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.header-cta:hover {
+  transform: translateY(-2px);
+  background: #7768d4;
+  border-color: #7768d4;
+  color: #fff;
+  box-shadow: 0 8px 20px #7768d440;
+}
+.site-header a:focus-visible, .site-header button:focus-visible {
+  outline: 2px solid #7666d5;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1050px) {
+  .site-header {
+    width: calc(100% - 10%);
+    padding-inline: 5%;
+  }
+  .main-nav { gap: 10px; }
+  .main-nav a { padding-inline: 8px; }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    top: 8px;
+    width: calc(100% - 8%);
+    height: 65px;
+    margin-top: 8px;
+    padding-inline: 5%;
+    border-radius: 18px;
+  }
+  .header-actions { gap: 13px; }
+  .header-cta { gap: 7px; padding: 10px 11px; font-size: 10px; }
+}
+
+@media (max-width: 390px) {
+  .header-cta { gap: 5px; padding-inline: 8px; font-size: 9px; }
 }
 
 .wordmark-name, .main-nav a, .language-toggle, .header-cta,
@@ -428,10 +514,7 @@ body {
 .hero-side-index { color: #747b91; }
 .button-primary { background: var(--blue); color: #100d1c; font-weight: 700; }
 .button-primary:hover { background: var(--lime); }
-.button-text:hover, .main-nav a:hover, .inline-link:hover { color: var(--lime); }
-.header-cta { background: var(--blue); color: #100d1c; font-weight: 700; }
-.header-cta:hover { background: var(--lime); }
-.language-toggle { color: var(--ink); }
+.button-text:hover, .inline-link:hover { color: var(--lime); }
 
 .intro-section, .work-section, .reasons-section { background: transparent; border-color: var(--line); }
 .intro-quote { color: #d7d9e3; }
