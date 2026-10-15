@@ -17,10 +17,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const configuredSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+  process.env.VERCEL_URL ??
+  "https://fadel-design.vercel.app";
+const metadataBase = new URL(
+  configuredSiteUrl.startsWith("http")
+    ? configuredSiteUrl
+    : `https://${configuredSiteUrl}`,
+);
+
 export const metadata: Metadata = {
+  metadataBase,
   title: "Fadel Design | Digital Design & Development",
   description:
     "Fadel Design creates thoughtful websites, mobile apps, presentations, and graduation project experiences in Iraq and worldwide.",
+  openGraph: {
+    title: "Fadel Design | تصميم وتطوير رقمي",
+    description: "استوديو تصميم وتطوير رقمي في العراق — مواقع، تطبيقات، وعروض تقديمية.",
+    siteName: "Fadel Design",
+    locale: "ar_IQ",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fadel Design | تصميم وتطوير رقمي",
+    description: "استوديو تصميم وتطوير رقمي في العراق — مواقع، تطبيقات، وعروض تقديمية.",
+  },
   verification: {
     google: "1ZMsSKjdyOTPHT4mlbNeI6RyZSqMIyXNR0XuMVaYvtk",
   },
